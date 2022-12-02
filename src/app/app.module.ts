@@ -9,6 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { authReducer } from './features/auth/store/auth.reducer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +25,12 @@ import { MatIconModule } from '@angular/material/icon';
     // MatProgressSpinnerModule,
     // MatListModule,
     StoreModule.forRoot({}, {}),
+    StoreModule.forFeature('auth', authReducer),
     BrowserAnimationsModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
