@@ -16,6 +16,6 @@ export class CouresesService {
   constructor(private http: HttpClient) {}
 
   getCoureses(): Observable<Courses> {
-    return this.http.get<Courses>('http://localhost:9000/api/courses');
+    return this.http.get<Courses>(`${this.basUrl}/api/courses`);
   }
 }
