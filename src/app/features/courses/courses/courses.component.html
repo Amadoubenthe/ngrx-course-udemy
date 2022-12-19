@@ -25,6 +25,10 @@
   
         </courses-card-list> -->
 
+        <div *ngFor="let item of beginnerCoureses">
+          <p>{{item.category}}</p>
+        </div>
+
         <app-courses-card-list >
   
         </app-courses-card-list>
@@ -32,11 +36,15 @@
       </mat-tab>
   
       <mat-tab label="Advanced">
+
+        <div *ngFor="let item of advancedCourses">
+          <p>{{item.category}}</p>
+        </div>
   
-        <!-- <app-courses-card-list  (courseChanged)="reload()"
-          [courses]="advancedCourses$ | async"
+        <app-courses-card-list
+          [courses]="advancedCourses"
   
-        ></app-courses-card-list> -->
+        ></app-courses-card-list>
 
         <app-courses-card-list></app-courses-card-list>
   

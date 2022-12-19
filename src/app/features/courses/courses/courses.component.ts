@@ -19,14 +19,13 @@ export interface Course {
   styleUrls: ['./courses.component.scss'],
 })
 export class CoursesComponent implements OnInit {
-  coureses!: Course[];
+  beginnerCoureses!: Course[];
+  advancedCourses!: Course[];
 
   constructor(private couresesService: CouresesService) {}
 
   ngOnInit(): void {
     this.getCoureses();
-
-    console.log(this.coureses);
   }
 
   getCoureses(): void {
@@ -36,7 +35,13 @@ export class CoursesComponent implements OnInit {
         map((v) => {
           console.log(v.payload);
 
-          this.coureses = v.payload;
+          this.advancedCourses = v.payload.filter(
+            (item) => item.category === 'ADVANCED'
+          );
+
+          this.beginnerCoureses = v.payload.filter(
+            (item) => item.category === 'BEGINNER'
+          );
         })
       )
       .subscribe(() => {});
