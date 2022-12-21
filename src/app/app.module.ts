@@ -12,6 +12,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { authReducer } from './features/auth/store/auth.reducer';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +24,9 @@ import { authReducer } from './features/auth/store/auth.reducer';
     HttpClientModule,
     MatMenuModule,
     MatIconModule,
-    // MatSidenavModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
     // MatProgressSpinnerModule,
     // MatListModule,
     StoreModule.forRoot({}, {}),

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Course } from 'src/app/features/courses/courses-card-list/courses-card-list.component';
+import { Course } from 'src/app/features/courses/courses/courses.component';
 
 export interface Courses {
   payload: Course[];

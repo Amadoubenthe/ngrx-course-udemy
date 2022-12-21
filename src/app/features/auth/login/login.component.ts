@@ -6,7 +6,8 @@ import { tap } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { login } from '../store/auth.actions';
 import { AuthState } from '../store/auth.reducer';
-import { noop } from 'rxjs';
+import { EMPTY } from 'rxjs';
+import { AuthActions } from '../store/action-type';
 
 @Component({
   selector: 'app-login',
@@ -29,27 +30,19 @@ export class LoginComponent implements OnInit {
   }
   ngOnInit() {}
   login() {
-    // console.log(this.form.value);
-    // this.auth.login(this.form.value.email, this.form.value.password).pipe(
-    //   tap((user) => {
-    //     console.log(user, 'user');
-    //   })
-    // );
-
     const val = this.form.value;
 
     this.auth
       .login(val.email, val.password)
       .pipe(
         tap((user) => {
-          console.log('user: ', user);
-
+          console.log('Mon User', user);
           this.store.dispatch(login({ user }));
-
           this.router.navigateByUrl('/courses');
         })
       )
-      .subscribe(noop, () => alert('Login Failed'));
-    // .subscribe(noop, () => alert('Login Failed'));
+      .subscribe(() => {
+        return EMPTY;
+      });
   }
 }

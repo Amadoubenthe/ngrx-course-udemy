@@ -1,58 +1,33 @@
 <div class="courses-panel">
+  <div class="header">
+    <h2 class="title">All Courses</h2>
 
-    <div class="header">
-  
-      <h2 class="title">All Courses</h2>
-  
-      <button mat-mini-fab>
-        <!-- <mat-icon class="add-course-btn" (click)="onAddCourse()">add</mat-icon> -->
-        <mat-icon class="add-course-btn">add</mat-icon>
-      </button>
-  
-    </div>
-  
-    <div class="counters">
-      <!-- <p>In Promo: {{promoTotal$ | async}}</p> -->
-      <p>In Promo: </p>
-    </div>
-  
-    <mat-tab-group>
-  
-      <mat-tab label="Beginners">
-  
-        <!-- <courses-card-list (courseChanged)="reload()"
-          [courses]="beginnerCourses$ | async">
-  
-        </courses-card-list> -->
-
-        <div *ngFor="let item of beginnerCoureses">
-          <p>{{item.category}}</p>
-        </div>
-
-        <app-courses-card-list >
-  
-        </app-courses-card-list>
-  
-      </mat-tab>
-  
-      <mat-tab label="Advanced">
-
-        <div *ngFor="let item of advancedCourses">
-          <p>{{item.category}}</p>
-        </div>
-  
-        <app-courses-card-list
-          [courses]="advancedCourses"
-  
-        ></app-courses-card-list>
-
-        <app-courses-card-list></app-courses-card-list>
-  
-      </mat-tab>
-  
-    </mat-tab-group>
-  
-  
+    <button mat-mini-fab>
+      <!-- <mat-icon class="add-course-btn" (click)="onAddCourse()">add</mat-icon> -->
+      <mat-icon class="add-course-btn">add</mat-icon>
+    </button>
   </div>
-  
-  
+
+  <div class="counters">
+    <!-- <p>In Promo: {{promoTotal$ | async}}</p> -->
+    <p>In Promo:</p>
+  </div>
+
+  <mat-tab-group>
+    <mat-tab label="Beginners">
+      <app-courses-card-list
+        [courses]="beginnerCoureses"
+      ></app-courses-card-list>
+
+      <app-courses-card-list> </app-courses-card-list>
+    </mat-tab>
+
+    <mat-tab label="Advanced">
+      <app-courses-card-list
+        [courses]="advancedCourses"
+      ></app-courses-card-list>
+
+      <app-courses-card-list></app-courses-card-list>
+    </mat-tab>
+  </mat-tab-group>
+</div>

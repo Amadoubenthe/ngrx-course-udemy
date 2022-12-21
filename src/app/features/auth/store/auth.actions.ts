@@ -5,3 +5,5 @@ export const login = createAction(
   '[Login Component] Authentication',
   props<{ user: User }>()
 );
+
+export const logout = createAction('[Logout Component] Logout');
