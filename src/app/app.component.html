@@ -12,7 +12,7 @@
 
 <mat-drawer-container class="example-container">
   <mat-drawer mode="side" [opened]="isOpened">
-    <mat-list>
+    <!-- <mat-list>
       <div mat-subheader>Folders</div>
       <mat-list-item *ngFor="let folder of folders">
         <mat-icon matListItemIcon>folder</mat-icon>
@@ -20,12 +20,14 @@
         <div matListItemLine>{{ folder.updated | date }}</div>
       </mat-list-item>
       <mat-divider></mat-divider>
-      <div mat-subheader>Notes</div>
-      <mat-list-item *ngFor="let note of notes">
-        <mat-icon matListItemIcon>note</mat-icon>
-        <div matListItemTitle>{{ note.name }}</div>
-        <div matListItemLine>{{ note.updated | date }}</div>
+    </mat-list> -->
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
       </mat-list-item>
+      <mat-list-item role="listitem">Item 2</mat-list-item>
+      <mat-list-item role="listitem">Item 3</mat-list-item>
     </mat-list>
   </mat-drawer>
   <mat-drawer-content>
